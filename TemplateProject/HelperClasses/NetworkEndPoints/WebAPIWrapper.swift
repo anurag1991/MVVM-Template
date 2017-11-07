@@ -7,10 +7,18 @@ protocol WebApiWrapperDelegate:class {
     func didReceiveResponse(request:Requestable, data:Any?,error:Error?)
 }
 
+/* Using completion handler*/
+
+typealias ResponseCompletionHandler = (_ request: Requestable,_ error: Error) -> Void
+
+
 class WebAPIWrapper {
     var delegate:WebApiWrapperDelegate?
-    
-    /* Developers can add NSURLSession Code Respectively */
+  
+//  func callServiceWithRequest(requestEnvelop: Requestable,completion: @escaping ResponseCompletionHandler)  {
+//
+//  }
+    /* Developers can add NSURLSession Code Respectively   */
     func callServiceWithRequest(requestEnvelop:Requestable) {
         let method = requestEnvelop.httpType.rawValue
         let type = HTTPMethod(rawValue: method)
@@ -34,5 +42,7 @@ class WebAPIWrapper {
                 self.delegate?.didReceiveResponse(request:requestEnvelop , data: response.data, error: response.result.error)
                 }
         }
+ 
+
 }
 
