@@ -23,13 +23,13 @@ class ViewController: UIViewController {
 
     //MARK: Login Service Call/Registration Service Call..
     func callLoginService() {
-        let login = ServicePath.login(username: "vishal.lohia@mobileprogrammingllc.com", password: "welcome")
+        let login = ServicePath.login(username: "youremail@.com", password: "yourpassword")
         viewModel.delegate = self
         viewModel.apiCallWithType(type: login)
     }
     
     func callRegistrationService() {
-         let registration = ServicePath.registration(first_name: "Vishal", last_name: "Lohia", email: "vishal.lohia@mobileprogrammingllc.com", pass: "welcome", deviceid: "vishal12341fsdf", phone: "2345678903")
+         let registration = ServicePath.registration(first_name: "Name", last_name: "lastNaame", email: "youremail@.com", pass: "welcome", deviceid: "blahblah2121", phone: "2345678903")
         viewModelReg.delegate = self
         viewModelReg.apiCallWithType(type: registration)
     }
